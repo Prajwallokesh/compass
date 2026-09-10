@@ -201,9 +201,15 @@ export const CtaAndFooter: React.FC<CtaAndFooterProps> = ({
             </div>
           </div>
 
-          {/* Designer Credit (Short) */}
-          <p className="text-xs font-mono text-slate-400 tracking-wide">
-            Designed by <span className="text-cyan-400 font-medium">Prajwal K L</span>
+          {/* Designer Credit (Simple, Clean, Attractive) */}
+          <p
+            className="text-sm sm:text-base text-slate-400 tracking-wide font-medium"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Designed by{' '}
+            <span className="text-cyan-400 font-bold tracking-normal hover:text-cyan-300 transition-colors">
+              Prajwal K L
+            </span>
           </p>
 
           {/* Socials / Contact Links & Back to Top */}

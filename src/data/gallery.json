@@ -1,0 +1,50 @@
+[
+  {
+    "id": "g1",
+    "name": "HackSprint 1.0 — 24H Campus Hackathon",
+    "image": "/gallery/hacksprint-1.jpg",
+    "tag": "Hackathon"
+  },
+  {
+    "id": "g2",
+    "name": "HackSprint 2.0 — Software Engineering Sprint",
+    "image": "/gallery/hacksprint-2.jpg",
+    "tag": "Hackathon"
+  },
+  {
+    "id": "g3",
+    "name": "Sadhana — Hands-on Tech Session & Masterclass",
+    "image": "/gallery/sadhana.jpg",
+    "tag": "Tech Session"
+  },
+  {
+    "id": "g4",
+    "name": "Code4Change — Social Good Developer Sprint",
+    "image": "/gallery/code4change.jpg",
+    "tag": "Community"
+  },
+  {
+    "id": "g5",
+    "name": "Tech Quiz Tournament Finals",
+    "image": "/gallery/tech-quiz.jpg",
+    "tag": "Competition"
+  },
+  {
+    "id": "g6",
+    "name": "Industry Expert Talks & Career Mentorship",
+    "image": "/gallery/community-talks.jpg",
+    "tag": "Mentorship"
+  },
+  {
+    "id": "g7",
+    "name": "Code4Change 1.0 — Technology With Purpose",
+    "image": "/gallery/code4change-banner.jpg",
+    "tag": "Community"
+  },
+  {
+    "id": "g8",
+    "name": "HackSprint 2.0 — Innovation Awards Showcase",
+    "image": "/gallery/hacksprint-edubot.jpg",
+    "tag": "Awards"
+  }
+]

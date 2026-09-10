@@ -1,78 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Camera, X, Maximize2 } from 'lucide-react';
+import { X, Maximize2 } from 'lucide-react';
+import galleryPhotos from '../data/gallery.json';
 
 interface GalleryPhoto {
   id: string;
   name: string;
-  image: string; // base64 or URL
+  image: string; // URL or static asset path
   tag?: string;
 }
 
-const DEFAULT_PHOTOS: GalleryPhoto[] = [
-  {
-    id: 'g1',
-    name: 'HackSprint 1.0 — 24H Campus Hackathon',
-    image: '',
-    tag: 'Hackathon',
-  },
-  {
-    id: 'g2',
-    name: 'HackSprint 2.0 — Software Engineering Sprint',
-    image: '',
-    tag: 'Hackathon',
-  },
-  {
-    id: 'g3',
-    name: 'Sadhana — Hands-on Tech Session & Masterclass',
-    image: '',
-    tag: 'Tech Session',
-  },
-  {
-    id: 'g4',
-    name: 'Code4Change — Social Good Developer Sprint',
-    image: '',
-    tag: 'Community',
-  },
-  {
-    id: 'g5',
-    name: 'Tech Quiz Tournament Finals',
-    image: '',
-    tag: 'Competition',
-  },
-  {
-    id: 'g6',
-    name: 'Industry Expert Talks & Career Mentorship',
-    image: '',
-    tag: 'Mentorship',
-  },
-];
-
-const STORAGE_KEY = 'compass_gallery_photos_v1';
-
 export const Gallery: React.FC = () => {
   const sectionRef = useScrollReveal<HTMLElement>();
-  const [photos] = useState<GalleryPhoto[]>(() => {
+  const photos = galleryPhotos as GalleryPhoto[];
+  const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null);
+
+  // Clean up legacy localStorage keys to ensure data is always loaded from bundled code
+  useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed;
-        }
-      }
+      localStorage.removeItem('compass_gallery_photos_v1');
+      localStorage.removeItem('compass_gallery_photos');
     } catch {
       // ignore
     }
-    return DEFAULT_PHOTOS;
-  });
-
-  const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null);
-
-  useEffect(() => {
-    // Expose for developer inspection or export if needed
-    (window as unknown as { __compassGallery: GalleryPhoto[] }).__compassGallery = photos;
-  }, [photos]);
+  }, []);
 
   return (
     <section
@@ -90,16 +41,13 @@ export const Gallery: React.FC = () => {
           </h2>
         </div>
 
-        {/* 2-Images Grid */}
+        {/* 2-Images Grid - Pure Photo Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {photos.map((item) => (
             <div
               key={item.id}
               onClick={() => item.image && setSelectedPhoto(item)}
-              className={`group relative p-5 sm:p-6 rounded-3xl bg-gradient-to-b from-[#080E1E]/95 via-[#060A16]/90 to-[#040711]/95 border border-white/[0.08] transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col justify-between ${item.image
-                ? 'hover:border-cyan-500/40 hover:shadow-[0_16px_50px_rgba(0,242,254,0.12)] hover:-translate-y-1 cursor-pointer'
-                : 'hover:border-white/20'
-                }`}
+              className="group relative p-3 sm:p-4 rounded-3xl bg-gradient-to-b from-[#080E1E]/95 via-[#060A16]/90 to-[#040711]/95 border border-white/[0.08] hover:border-cyan-500/40 transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_50px_rgba(0,242,254,0.15)] hover:-translate-y-1.5 cursor-pointer overflow-hidden"
             >
               {/* Subtle top glowing accent line */}
               <div className="absolute top-0 left-8 right-8 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -107,46 +55,17 @@ export const Gallery: React.FC = () => {
               {/* Ambient Aura */}
               <div className="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-cyan-500/10 blur-2xl pointer-events-none group-hover:bg-cyan-500/20 transition-all duration-500" />
 
-              <div>
-                {/* Image Frame */}
-                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-4 bg-[#060B18] border border-white/[0.08] group-hover:border-cyan-500/30 transition-all duration-300 flex items-center justify-center shadow-inner">
-                  {item.image ? (
-                    <>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                      />
-                      {/* Corner Maximize Icon indicator on hover */}
-                      <div className="absolute top-3 right-3 p-2 rounded-lg bg-black/70 backdrop-blur-xs border border-white/10 text-slate-300 group-hover:text-cyan-300 group-hover:border-cyan-400/40 transition-all opacity-0 group-hover:opacity-100">
-                        <Maximize2 className="w-4 h-4" />
-                      </div>
-                    </>
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-t from-[#040711] via-[#081024] to-[#0c1630] flex flex-col items-center justify-center p-6 text-slate-400">
-                      <div className="w-14 h-14 rounded-2xl bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-3 shadow-[0_0_15px_rgba(0,242,254,0.15)] group-hover:scale-110 transition-transform duration-300">
-                        <Camera className="w-6 h-6 text-cyan-400" />
-                      </div>
-                      <span className="text-xs font-mono text-cyan-300/90 tracking-wider uppercase font-semibold">
-                        COMPASS MOMENTS
-                      </span>
-                      <span className="text-[11px] font-mono text-slate-500 mt-1">
-                        GECH • CS&amp;E
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Event Name & Tag */}
-                <div className="flex items-start justify-between gap-3 pt-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-200 transition-colors tracking-tight">
-                    {item.name}
-                  </h3>
-                  {item.tag && (
-                    <span className="shrink-0 px-2.5 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase bg-cyan-950/60 border border-cyan-500/30 text-cyan-300">
-                      {item.tag}
-                    </span>
-                  )}
+              {/* Image Frame */}
+              <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-[#060B18] border border-white/[0.08] group-hover:border-cyan-500/30 transition-all duration-300 flex items-center justify-center shadow-inner">
+                <img
+                  src={item.image}
+                  alt="COMPASS Gallery"
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Corner Maximize Icon indicator on hover */}
+                <div className="absolute top-3 right-3 p-2 rounded-lg bg-black/70 backdrop-blur-xs border border-white/10 text-slate-300 group-hover:text-cyan-300 group-hover:border-cyan-400/40 transition-all opacity-0 group-hover:opacity-100">
+                  <Maximize2 className="w-4 h-4" />
                 </div>
               </div>
             </div>
@@ -172,30 +91,12 @@ export const Gallery: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="relative max-h-[75vh] w-full flex items-center justify-center bg-[#050811]">
-              {selectedPhoto.image ? (
-                <img
-                  src={selectedPhoto.image}
-                  alt={selectedPhoto.name}
-                  className="max-h-[75vh] w-auto object-contain"
-                />
-              ) : (
-                <div className="h-80 w-full flex flex-col items-center justify-center text-slate-500">
-                  <Camera className="w-16 h-16 text-cyan-400/30 mb-2" />
-                  <span className="text-xs font-mono">No image available</span>
-                </div>
-              )}
-            </div>
-
-            <div className="p-4 sm:p-5 bg-[#060913] border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-              <h3 className="text-lg font-bold text-white">
-                {selectedPhoto.name}
-              </h3>
-              {selectedPhoto.tag && (
-                <span className="px-2.5 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase bg-cyan-950/60 border border-cyan-500/30 text-cyan-300">
-                  {selectedPhoto.tag}
-                </span>
-              )}
+            <div className="relative max-h-[85vh] w-full flex items-center justify-center bg-[#050811] p-3 sm:p-4">
+              <img
+                src={selectedPhoto.image}
+                alt="COMPASS Gallery"
+                className="max-h-[80vh] w-auto object-contain rounded-xl shadow-2xl"
+              />
             </div>
           </div>
         </div>
