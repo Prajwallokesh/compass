@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Send,
   X,
   CheckCircle,
+  ArrowUp,
 } from 'lucide-react';
 
 interface CtaAndFooterProps {
@@ -15,6 +16,21 @@ export const CtaAndFooter: React.FC<CtaAndFooterProps> = ({
   isApplyModalOpen,
   onCloseApplyModal,
 }) => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Modal form states
   const [formData, setFormData] = useState({
     name: '',
@@ -198,6 +214,46 @@ export const CtaAndFooter: React.FC<CtaAndFooterProps> = ({
           </p>
         </div>
       </footer>
+
+      {/* Fixed Compass Back-to-Top Button */}
+      <button
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className={`fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-40 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#060A16]/90 hover:bg-[#081024] backdrop-blur-md border border-cyan-500/40 hover:border-cyan-300 text-cyan-300 hover:text-white shadow-[0_0_20px_rgba(0,242,254,0.25)] hover:shadow-[0_0_28px_rgba(0,242,254,0.55)] transition-all duration-300 group cursor-pointer flex items-center justify-center ${showScrollTop
+            ? 'opacity-100 scale-100 pointer-events-auto'
+            : 'opacity-0 scale-90 pointer-events-none'
+          }`}
+      >
+        {/* Subtle Compass Ticks & Outer Dial SVG */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700 ease-out group-hover:rotate-45"
+          viewBox="0 0 48 48"
+        >
+          {/* Outer Dashed Compass Ring */}
+          <circle
+            cx="24"
+            cy="24"
+            r="21"
+            fill="none"
+            stroke="rgba(0, 242, 254, 0.25)"
+            strokeWidth="1"
+            strokeDasharray="2 3"
+          />
+          {/* Cardinal Ticks (N, S, E, W) */}
+          <line x1="24" y1="3" x2="24" y2="7" stroke="#00F2FE" strokeWidth="1.8" strokeLinecap="round" />
+          <line x1="24" y1="41" x2="24" y2="45" stroke="rgba(0, 242, 254, 0.45)" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="3" y1="24" x2="7" y2="24" stroke="rgba(0, 242, 254, 0.45)" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="41" y1="24" x2="45" y2="24" stroke="rgba(0, 242, 254, 0.45)" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+
+        {/* Compass Center Needle with North Direction Indicator */}
+        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5">
+          <ArrowUp className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-cyan-300 group-hover:text-cyan-100 drop-shadow-[0_0_8px_rgba(0,242,254,0.7)] transition-colors" />
+          <span className="text-[6.5px] sm:text-[7px] font-mono font-bold tracking-widest text-cyan-400 group-hover:text-cyan-200 uppercase -mt-0.5 select-none">
+            N
+          </span>
+        </div>
+      </button>
     </>
   );
 };
