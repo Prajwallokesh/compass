@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = () => {
         <div className="flex flex-col items-center justify-center w-full mt-6 xs:mt-7 sm:mt-4 mb-2 sm:mb-3">
           {/* Main Cinematic Heading: "BUILD THE" on line 1, "FUTURE." on line 2 */}
           <h1
-            className={`text-[clamp(3.9rem,16.8vw,4.75rem)] xs:text-[clamp(4.5rem,15.5vw,5.5rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[-0.035em] sm:tracking-tight text-white pt-3.5 xs:pt-4 sm:pt-4 mb-8 xs:mb-9 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+            className={`text-[clamp(4.2rem,17.8vw,5.1rem)] xs:text-[clamp(4.8rem,16.5vw,5.8rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[-0.045em] sm:tracking-tight text-white pt-3.5 xs:pt-4 sm:pt-4 mb-8 xs:mb-9 sm:mb-5 uppercase leading-[0.90] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
               }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
