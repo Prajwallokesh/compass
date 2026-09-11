@@ -68,15 +68,13 @@ export const Hero: React.FC<HeroProps> = () => {
       {/* 3. Hero Content - Starting from Top on Mobile with Spaced Components & Enlarged Typography */}
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center w-full pt-2 sm:pt-0 gap-5 sm:gap-6 flex-1">
         {/* Top Slot: Institutional Header (Department + Association Badge) */}
-        <div className="w-full flex flex-col items-center justify-center gap-4 sm:gap-3">
+        <div className="w-full flex flex-col items-center justify-center gap-5 xs:gap-6 sm:gap-3.5">
           <div
             className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
             <p className="text-[15px] xs:text-[17px] sm:text-lg md:text-xl font-mono font-bold tracking-[0.06em] xs:tracking-[0.12em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-normal whitespace-nowrap">
-              <span>Department of CSE</span>
-              <span className="text-cyan-400/80 mx-1">,</span>
-              <span className="text-cyan-400">GEC Hassan</span>
+              <span>Department of CSE,</span> <span className="text-cyan-400">GEC Hassan</span>
             </p>
           </div>
           <div
@@ -89,11 +87,11 @@ export const Hero: React.FC<HeroProps> = () => {
           </div>
         </div>
 
-        {/* Center Slot: Main Cinematic Heading + Subheading - Bigger Font on Mobile */}
-        <div className="flex flex-col items-center justify-center w-full mt-3 sm:mt-4 mb-2 sm:mb-3">
+        {/* Center Slot: Main Cinematic Heading + Subheading - Positioned slightly below on Mobile */}
+        <div className="flex flex-col items-center justify-center w-full mt-6 xs:mt-7 sm:mt-4 mb-2 sm:mb-3">
           {/* Main Cinematic Heading: "BUILD THE" on line 1, "FUTURE." on line 2 */}
           <h1
-            className={`text-[clamp(3.9rem,16.8vw,4.75rem)] xs:text-[clamp(4.5rem,15.5vw,5.5rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[-0.035em] sm:tracking-tight text-white pt-2.5 sm:pt-4 mb-6 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+            className={`text-[clamp(3.9rem,16.8vw,4.75rem)] xs:text-[clamp(4.5rem,15.5vw,5.5rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[-0.035em] sm:tracking-tight text-white pt-3.5 xs:pt-4 sm:pt-4 mb-8 xs:mb-9 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
               }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
@@ -105,7 +103,7 @@ export const Hero: React.FC<HeroProps> = () => {
             </span>
           </h1>
 
-          {/* Subheading - Balanced block that looks squared and even like justified, without awkward word-spacing gaps */}
+          {/* Subheading - Positioned slightly below with balanced block layout */}
           <p
             className={`max-w-xl mx-auto text-[19.5px] xs:text-[21.5px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-center text-balance px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
                 ? 'opacity-100 translate-y-0'
