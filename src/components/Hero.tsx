@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = () => {
     <section
       id="intro"
       onMouseMove={handleMouseMove}
-      className="relative min-h-[100svh] sm:min-h-screen flex flex-col justify-center items-center overflow-hidden bg-transparent pt-16 pb-4 sm:pt-24 sm:pb-12 px-4 sm:px-6 lg:px-8 select-none"
+      className="relative min-h-[100svh] sm:min-h-screen flex flex-col justify-between items-center overflow-hidden bg-transparent pt-16 pb-4 sm:pt-20 sm:pb-8 px-4 sm:px-6 lg:px-8 select-none"
     >
       {/* 1. Subtle Background Grid & Gradients */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -65,15 +65,15 @@ export const Hero: React.FC<HeroProps> = () => {
         <HeroCompassCanvas mousePos={mousePos} />
       </div>
 
-      {/* 3. Hero Content - Full-Screen Distributed on Mobile */}
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-between text-center w-full min-h-[calc(100svh-5rem)] sm:min-h-0 sm:justify-center py-2 sm:py-6 flex-1">
-        {/* Top Slot: Institutional Header (Department + Association Badge) */}
-        <div className="w-full flex flex-col items-center justify-center pt-1 sm:pt-0 sm:mb-6 gap-2">
+      {/* 3. Hero Content - Full-Screen Distributed on Mobile & Desktop */}
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-between text-center w-full min-h-[calc(100svh-5rem)] sm:min-h-[calc(100vh-6rem)] py-2 sm:py-3 flex-1">
+        {/* Top Slot: Institutional Header (Department + Association Badge) - Positioned at top just below navbar */}
+        <div className="w-full flex flex-col items-center justify-center pt-1 sm:pt-2 mb-auto gap-3.5 sm:gap-4.5">
           <div
             className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <p className="text-[11px] sm:text-xs md:text-sm font-mono font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-cyan-400 uppercase drop-shadow-[0_0_12px_rgba(0,242,254,0.35)]">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl font-mono font-bold tracking-[0.2em] sm:tracking-[0.26em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)]">
               Department of CSE, GEC Hassan
             </p>
           </div>
