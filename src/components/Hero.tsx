@@ -68,17 +68,17 @@ export const Hero: React.FC<HeroProps> = () => {
       {/* 3. Hero Content - Starting from Top on Mobile with Spaced Components & Enlarged Typography */}
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center w-full pt-2 sm:pt-0 gap-5 sm:gap-6 flex-1">
         {/* Top Slot: Institutional Header (Department + Association Badge) */}
-        <div className="w-full flex flex-col items-center justify-center gap-5 xs:gap-6 sm:gap-3.5">
+        <div className="w-full flex flex-col items-center justify-center gap-7 xs:gap-8 sm:gap-4">
           <div
             className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <p className="text-[15px] xs:text-[17px] sm:text-lg md:text-xl font-mono font-bold tracking-[0.06em] xs:tracking-[0.12em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-normal whitespace-nowrap">
+            <p className="text-[17.5px] xs:text-[19.5px] sm:text-lg md:text-xl font-mono font-bold tracking-[0.025em] xs:tracking-[0.05em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-normal whitespace-nowrap">
               <span>Department of CSE,</span> <span className="text-cyan-400">GEC Hassan</span>
             </p>
           </div>
           <div
-            className={`inline-flex items-center justify-center px-6 py-2 sm:px-7 sm:py-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md shadow-[0_0_24px_rgba(0,242,254,0.2)] transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`inline-flex items-center justify-center px-6 py-2 sm:px-7 sm:py-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md shadow-[0_0_24px_rgba(0,242,254,0.2)] mt-1 sm:mt-0 transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
             <span className="text-sm xs:text-base sm:text-sm md:text-base font-mono font-bold tracking-[0.14em] sm:tracking-[0.24em] text-cyan-300 uppercase">
