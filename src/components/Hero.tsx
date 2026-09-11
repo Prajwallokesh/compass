@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = () => {
     <section
       id="intro"
       onMouseMove={handleMouseMove}
-      className="relative min-h-[100svh] sm:min-h-screen flex flex-col justify-center items-center overflow-hidden bg-transparent pt-20 pb-4 sm:pt-24 sm:pb-12 px-4 sm:px-6 lg:px-8 select-none"
+      className="relative min-h-[100svh] sm:min-h-screen flex flex-col justify-start sm:justify-center items-center overflow-hidden bg-transparent pt-20 pb-8 sm:pt-24 sm:pb-12 px-4 sm:px-6 lg:px-8 select-none"
     >
       {/* 1. Subtle Background Grid & Gradients */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -65,33 +65,35 @@ export const Hero: React.FC<HeroProps> = () => {
         <HeroCompassCanvas mousePos={mousePos} />
       </div>
 
-      {/* 3. Hero Content - Minimal Space & Centered Grouping on Mobile & Desktop */}
-      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-center text-center w-full py-4 sm:py-6">
+      {/* 3. Hero Content - Starting from Top on Mobile with Spaced Components & Enlarged Typography */}
+      <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-start sm:justify-center text-center w-full pt-2 sm:pt-0 gap-5 sm:gap-6 flex-1">
         {/* Top Slot: Institutional Header (Department + Association Badge) */}
-        <div className="w-full flex flex-col items-center justify-center mb-3 sm:mb-5 gap-1.5 sm:gap-2.5">
+        <div className="w-full flex flex-col items-center justify-center gap-2.5 sm:gap-3">
           <div
             className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-mono font-bold tracking-[0.14em] sm:tracking-[0.22em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)]">
-              Department of CSE, GEC Hassan
+            <p className="text-lg xs:text-xl sm:text-lg md:text-xl font-mono font-bold tracking-[0.14em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-snug sm:leading-normal">
+              <span className="block sm:inline mb-1.5 sm:mb-0">Department of CSE</span>
+              <span className="hidden sm:inline">, </span>
+              <span className="block sm:inline text-cyan-400">GEC Hassan</span>
             </p>
           </div>
           <div
-            className={`inline-flex items-center justify-center px-5 py-1.5 sm:px-7 sm:py-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md shadow-[0_0_24px_rgba(0,242,254,0.2)] transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            className={`inline-flex items-center justify-center px-6 py-2 sm:px-7 sm:py-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md shadow-[0_0_24px_rgba(0,242,254,0.2)] transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <span className="text-xs sm:text-sm md:text-base font-mono font-bold tracking-[0.14em] sm:tracking-[0.22em] text-cyan-300 uppercase">
+            <span className="text-sm xs:text-base sm:text-sm md:text-base font-mono font-bold tracking-[0.14em] sm:tracking-[0.24em] text-cyan-300 uppercase">
               COMPASS STUDENT ASSOCIATION
             </span>
           </div>
         </div>
 
-        {/* Center Slot: Main Cinematic Heading + Subheading */}
-        <div className="flex flex-col items-center justify-center mb-3 sm:mb-5 w-full">
-          {/* Main Cinematic Heading: "BUILD THE FUTURE." */}
+        {/* Center Slot: Main Cinematic Heading + Subheading - Bigger Font on Mobile */}
+        <div className="flex flex-col items-center justify-center w-full mt-3 sm:mt-4 mb-2 sm:mb-3">
+          {/* Main Cinematic Heading: "BUILD THE FUTURE." - Big & Impactful on Mobile with padding to position slightly below */}
           <h1
-            className={`text-[3.25rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white mb-2 sm:mb-4 uppercase leading-[0.98] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+            className={`text-[4.35rem] xs:text-[5rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.92] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
               }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
@@ -103,28 +105,28 @@ export const Hero: React.FC<HeroProps> = () => {
             </span>
           </h1>
 
-          {/* Subheading */}
+          {/* Subheading - Bigger & justified on mobile, centered on desktop */}
           <p
-            className={`max-w-2xl text-xs sm:text-base md:text-lg lg:text-xl text-slate-200 font-normal leading-relaxed px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
+            className={`max-w-2xl text-[22px] xs:text-[24px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-justify sm:text-center px-4 transition-all duration-700 ease-out ${stage.subheading
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-6'
               }`}
           >
-            The premier Computer Science and Engineering student ecosystem at GECH. We learn emerging technologies, build intelligent solutions, turn breakthrough ideas into reality, and empower the next generation of innovators, engineers, and researchers.
+            Where the next generation of technology leaders begins. We learn emerging technologies, build intelligent solutions, turn breakthrough ideas into reality, and empower the next generation of innovators, engineers, and researchers.
           </p>
         </div>
 
         {/* Bottom Slot: Tagline */}
         <div
-          className={`w-full pt-2 sm:pt-4 transition-all duration-1000 ${stage.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          className={`w-full pt-4 sm:pt-5 pb-2 sm:pb-0 transition-all duration-1000 ${stage.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
         >
           <div className="flex items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto px-4">
-            <span className="h-[1px] flex-1 max-w-[32px] sm:max-w-[50px] bg-gradient-to-r from-transparent to-cyan-400/50" />
-            <p className="text-[11px] sm:text-sm md:text-base font-mono font-bold tracking-[0.16em] sm:tracking-[0.24em] text-cyan-300 uppercase select-none drop-shadow-[0_0_12px_rgba(0,242,254,0.3)] whitespace-nowrap">
+            <span className="h-[1px] flex-1 max-w-[40px] sm:max-w-[60px] bg-gradient-to-r from-transparent to-cyan-400/50" />
+            <p className="text-sm xs:text-base sm:text-sm md:text-base lg:text-lg font-mono font-bold tracking-[0.16em] sm:tracking-[0.24em] text-cyan-300 uppercase select-none drop-shadow-[0_0_14px_rgba(0,242,254,0.35)] whitespace-nowrap">
               AI ISNT THE FUTURE, ITS NOW
             </p>
-            <span className="h-[1px] flex-1 max-w-[32px] sm:max-w-[50px] bg-gradient-to-l from-transparent to-cyan-400/50" />
+            <span className="h-[1px] flex-1 max-w-[40px] sm:max-w-[60px] bg-gradient-to-l from-transparent to-cyan-400/50" />
           </div>
         </div>
       </div>
