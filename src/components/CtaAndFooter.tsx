@@ -3,7 +3,6 @@ import {
   Send,
   X,
   CheckCircle,
-  ArrowUp,
 } from 'lucide-react';
 
 interface CtaAndFooterProps {
@@ -215,44 +214,60 @@ export const CtaAndFooter: React.FC<CtaAndFooterProps> = ({
         </div>
       </footer>
 
-      {/* Fixed Compass Back-to-Top Button */}
+      {/* Fixed 4-Direction Compass Back-to-Top Button */}
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className={`fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-40 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#060A16]/90 hover:bg-[#081024] backdrop-blur-md border border-cyan-500/40 hover:border-cyan-300 text-cyan-300 hover:text-white shadow-[0_0_20px_rgba(0,242,254,0.25)] hover:shadow-[0_0_28px_rgba(0,242,254,0.55)] transition-all duration-300 group cursor-pointer flex items-center justify-center ${showScrollTop
+        className={`fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#060A16]/90 hover:bg-[#081024] backdrop-blur-md border border-cyan-500/50 hover:border-cyan-300 shadow-[0_0_24px_rgba(0,242,254,0.3)] hover:shadow-[0_0_32px_rgba(0,242,254,0.65)] transition-all duration-300 group cursor-pointer flex items-center justify-center ${showScrollTop
             ? 'opacity-100 scale-100 pointer-events-auto'
             : 'opacity-0 scale-90 pointer-events-none'
           }`}
       >
-        {/* Subtle Compass Ticks & Outer Dial SVG */}
+        {/* 4-Direction Compass Arrows & Outer Dial */}
         <svg
-          className="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700 ease-out group-hover:rotate-45"
+          className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-500 ease-out group-hover:rotate-45"
           viewBox="0 0 48 48"
+          fill="none"
         >
-          {/* Outer Dashed Compass Ring */}
+          {/* Outer Dashed Compass Dial Ring */}
           <circle
             cx="24"
             cy="24"
-            r="21"
-            fill="none"
-            stroke="rgba(0, 242, 254, 0.25)"
+            r="21.5"
+            stroke="rgba(0, 242, 254, 0.3)"
             strokeWidth="1"
             strokeDasharray="2 3"
           />
-          {/* Cardinal Ticks (N, S, E, W) */}
-          <line x1="24" y1="3" x2="24" y2="7" stroke="#00F2FE" strokeWidth="1.8" strokeLinecap="round" />
-          <line x1="24" y1="41" x2="24" y2="45" stroke="rgba(0, 242, 254, 0.45)" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="3" y1="24" x2="7" y2="24" stroke="rgba(0, 242, 254, 0.45)" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="41" y1="24" x2="45" y2="24" stroke="rgba(0, 242, 254, 0.45)" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
 
-        {/* Compass Center Needle with North Direction Indicator */}
-        <div className="relative z-10 flex flex-col items-center justify-center transition-transform duration-300 group-hover:-translate-y-0.5">
-          <ArrowUp className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-cyan-300 group-hover:text-cyan-100 drop-shadow-[0_0_8px_rgba(0,242,254,0.7)] transition-colors" />
-          <span className="text-[6.5px] sm:text-[7px] font-mono font-bold tracking-widest text-cyan-400 group-hover:text-cyan-200 uppercase -mt-0.5 select-none">
-            N
-          </span>
-        </div>
+          {/* North Arrow (Up - Highlighted in Glowing Cyan) */}
+          <polygon
+            points="24,5 29,19 24,16 19,19"
+            fill="#00F2FE"
+            className="drop-shadow-[0_0_8px_rgba(0,242,254,0.9)]"
+          />
+
+          {/* South Arrow (Down) */}
+          <polygon
+            points="24,43 19,29 24,32 29,29"
+            fill="rgba(0, 242, 254, 0.5)"
+          />
+
+          {/* East Arrow (Right) */}
+          <polygon
+            points="43,24 29,19 32,24 29,29"
+            fill="rgba(0, 242, 254, 0.5)"
+          />
+
+          {/* West Arrow (Left) */}
+          <polygon
+            points="5,24 19,29 16,24 19,19"
+            fill="rgba(0, 242, 254, 0.5)"
+          />
+
+          {/* Center Compass Core */}
+          <circle cx="24" cy="24" r="3.5" fill="#00F2FE" className="drop-shadow-[0_0_6px_rgba(0,242,254,1)]" />
+          <circle cx="24" cy="24" r="1.5" fill="#060A16" />
+        </svg>
       </button>
     </>
   );

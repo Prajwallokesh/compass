@@ -48,10 +48,10 @@ export const Coordinator: React.FC = () => {
             COORDINATOR
           </span>
 
-          {/* Inside Layout: Tightened Spacing Between Image (Left) + Words (Right) */}
-          <div className="relative z-10 flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 items-center justify-center">
+          {/* Inside Layout: Perfectly Aligned Left Column + Right Column */}
+          <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-center justify-between">
             {/* Left Column: Portrait & Full Designation */}
-            <div className="w-full sm:w-auto lg:w-80 shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="w-full sm:w-auto lg:w-72 xl:w-80 shrink-0 flex flex-col items-center lg:items-start text-center lg:text-left">
               {/* Portrait Frame (Finalized View-Only) */}
               <div
                 className="group/img relative w-48 h-56 sm:w-64 sm:h-72 rounded-2xl overflow-hidden border border-cyan-500/30 bg-[#060B18] shadow-[0_0_30px_rgba(0,242,254,0.15)] flex items-center justify-center transition-transform duration-300 hover:scale-[1.02]"
@@ -79,7 +79,7 @@ export const Coordinator: React.FC = () => {
               </div>
 
               {/* Designation */}
-              <h3 className="text-lg sm:text-2xl lg:text-[26px] xl:text-3xl font-black text-white mt-4 sm:mt-5 mb-1 tracking-tight whitespace-nowrap">
+              <h3 className="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-black text-white mt-4 sm:mt-5 mb-1 tracking-tight">
                 Dr. Vasantha Kumara M
               </h3>
               <p className="text-xs sm:text-sm font-mono text-cyan-400 font-semibold mb-2 tracking-wide uppercase">
@@ -91,25 +91,25 @@ export const Coordinator: React.FC = () => {
               </p>
             </div>
 
-            {/* Right Column: Coordinator Address Words */}
-            <div className="flex-1 flex flex-col justify-center space-y-5 sm:space-y-6">
-              {/* Main Address Quote */}
-              <div className="space-y-4 sm:space-y-5 pl-4 sm:pl-6 border-l-2 border-cyan-500/50">
-                <p className="text-base sm:text-lg lg:text-xl text-slate-200 font-light leading-relaxed italic">
+            {/* Right Column: Coordinator Address Words (Enlarged & Completely Aligned) */}
+            <div className="flex-1 flex flex-col justify-center space-y-6 sm:space-y-7 w-full">
+              {/* Main Address Quote with Left Cyan Line */}
+              <div className="space-y-4 sm:space-y-5 pl-5 sm:pl-7 border-l-2 border-cyan-400/70">
+                <p className="text-lg sm:text-xl lg:text-2xl text-slate-100 font-light leading-relaxed italic">
                   &ldquo;COMPASS is more than a platform for technical activities &mdash; it is a space where{' '}
                   <span className="text-white font-medium not-italic">curiosity becomes capability</span> and ideas become{' '}
                   <span className="text-cyan-300 font-medium not-italic">meaningful solutions</span>. In an era shaped by Artificial Intelligence and rapidly evolving technology, our students must go beyond the boundaries of the classroom to{' '}
                   <span className="text-white font-medium not-italic">explore, experiment, build, and innovate</span>.&rdquo;
                 </p>
 
-                <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed italic">
+                <p className="text-base sm:text-lg lg:text-xl text-slate-200 font-light leading-relaxed italic">
                   &ldquo;Through COMPASS, I encourage every student to embrace new technologies, participate in{' '}
                   <span className="text-cyan-300 font-medium not-italic">hackathons and ideathons</span>, work on real-world projects, and learn from one another.&rdquo;
                 </p>
               </div>
 
-              {/* Department Note Strip */}
-              <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-slate-400 flex-wrap gap-2">
+              {/* Department Note Strip - Completely Aligned with Quote Left Margin */}
+              <div className="pt-4 border-t border-white/[0.08] pl-5 sm:pl-7 border-l-2 border-transparent flex items-center justify-between text-xs sm:text-sm font-mono text-slate-400 flex-wrap gap-2">
                 <span className="text-cyan-400/90 font-medium">
                   Department of Computer Science &amp; Engineering • GECH
                 </span>
