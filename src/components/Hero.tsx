@@ -93,7 +93,7 @@ export const Hero: React.FC<HeroProps> = () => {
         <div className="flex flex-col items-center justify-center w-full mt-3 sm:mt-4 mb-2 sm:mb-3">
           {/* Main Cinematic Heading: "BUILD THE FUTURE." - Big & Impactful on Mobile with padding to position slightly below */}
           <h1
-            className={`text-[4.35rem] xs:text-[5rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.92] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+            className={`text-[4.75rem] xs:text-[5.35rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
               }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
@@ -105,9 +105,9 @@ export const Hero: React.FC<HeroProps> = () => {
             </span>
           </h1>
 
-          {/* Subheading - Bigger & justified on mobile, centered on desktop */}
+          {/* Subheading - Bigger & balanced centered on mobile & desktop */}
           <p
-            className={`max-w-2xl text-[22px] xs:text-[24px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-justify sm:text-center px-4 transition-all duration-700 ease-out ${stage.subheading
+            className={`max-w-2xl text-[21px] xs:text-[23px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-center px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-6'
               }`}
