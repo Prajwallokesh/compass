@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = () => {
     <section
       id="intro"
       onMouseMove={handleMouseMove}
-      className="relative min-h-[100svh] sm:min-h-screen flex flex-col justify-start sm:justify-center items-center overflow-hidden bg-transparent pt-20 pb-8 sm:pt-24 sm:pb-12 px-4 sm:px-6 lg:px-8 select-none"
+      className="relative min-h-[100svh] sm:min-h-screen flex flex-col justify-start sm:justify-center items-center overflow-hidden bg-transparent pt-20 pb-8 sm:pt-24 sm:pb-12 px-3 sm:px-6 lg:px-8 select-none"
     >
       {/* 1. Subtle Background Grid & Gradients */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
@@ -73,7 +73,7 @@ export const Hero: React.FC<HeroProps> = () => {
             className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <p className="text-[17.5px] xs:text-[19.5px] sm:text-lg md:text-xl font-mono font-bold tracking-[0.025em] xs:tracking-[0.05em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-normal whitespace-nowrap">
+            <p className="text-[clamp(1.15rem,5.1vw,1.42rem)] xs:text-[clamp(1.3rem,4.8vw,1.55rem)] sm:text-lg md:text-xl font-mono font-bold tracking-[-0.015em] xs:tracking-[0.02em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-normal whitespace-nowrap">
               <span>Department of CSE,</span> <span className="text-cyan-400">GEC Hassan</span>
             </p>
           </div>
