@@ -176,21 +176,19 @@ export const CtaAndFooter: React.FC<CtaAndFooterProps> = ({
         </div>
       )}
 
-      {/* Ultra Minimal Footer - Logo & Designed by only */}
+      {/* Ultra Minimal Footer - Logo & Designed by Adjacent and Centered */}
       <footer className="relative z-10 bg-[#03050A] border-t border-white/[0.08] py-6 sm:py-7 px-4 sm:px-6 lg:px-8 select-none">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="max-w-6xl mx-auto flex items-center justify-center gap-3.5 sm:gap-4 flex-wrap">
           {/* Logo */}
-          <div className="flex items-center justify-center">
-            <img
-              src="/compass-logo.png"
-              alt="COMPASS"
-              className="h-8 sm:h-9 w-auto object-contain"
-            />
-          </div>
+          <img
+            src="/compass-logo.png"
+            alt="COMPASS"
+            className="h-7 sm:h-8 w-auto object-contain"
+          />
 
           {/* Designer Credit */}
           <p
-            className="text-sm sm:text-base text-slate-400 tracking-wide font-medium"
+            className="text-sm sm:text-base text-slate-400 tracking-wide font-medium whitespace-nowrap"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             Designed by{' '}
