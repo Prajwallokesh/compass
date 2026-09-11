@@ -59,21 +59,27 @@ export const Hero: React.FC<HeroProps> = () => {
 
       {/* 2. Abstract Digital Compass Canvas */}
       <div
-        className={`absolute inset-0 transition-opacity duration-1000 ${
-          stage.visual ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`absolute inset-0 transition-opacity duration-1000 ${stage.visual ? 'opacity-100' : 'opacity-0'
+          }`}
       >
         <HeroCompassCanvas mousePos={mousePos} />
       </div>
 
       {/* 3. Hero Content - Full-Screen Distributed on Mobile */}
       <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center justify-between text-center w-full min-h-[calc(100svh-5rem)] sm:min-h-0 sm:justify-center py-2 sm:py-6 flex-1">
-        {/* Top Slot: Institutional Pill Badge */}
-        <div className="w-full flex justify-center pt-1 sm:pt-0 sm:mb-6">
+        {/* Top Slot: Institutional Header (Department + Association Badge) */}
+        <div className="w-full flex flex-col items-center justify-center pt-1 sm:pt-0 sm:mb-6 gap-2">
           <div
-            className={`inline-flex items-center justify-center px-5 py-2 sm:px-7 sm:py-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md shadow-[0_0_24px_rgba(0,242,254,0.2)] transition-all duration-700 ${
-              stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+          >
+            <p className="text-[11px] sm:text-xs md:text-sm font-mono font-semibold tracking-[0.2em] sm:tracking-[0.25em] text-cyan-400 uppercase drop-shadow-[0_0_12px_rgba(0,242,254,0.35)]">
+              Department of CSE, GEC Hassan
+            </p>
+          </div>
+          <div
+            className={`inline-flex items-center justify-center px-5 py-2 sm:px-7 sm:py-2.5 rounded-full border border-cyan-500/30 bg-cyan-950/40 backdrop-blur-md shadow-[0_0_24px_rgba(0,242,254,0.2)] transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
           >
             <span className="text-xs sm:text-sm md:text-base font-mono font-bold tracking-[0.18em] sm:tracking-[0.24em] text-cyan-300 uppercase">
               COMPASS STUDENT ASSOCIATION
@@ -81,13 +87,12 @@ export const Hero: React.FC<HeroProps> = () => {
           </div>
         </div>
 
-        {/* Center Slot: Main Cinematic Heading + Subheading + Department */}
+        {/* Center Slot: Main Cinematic Heading + Subheading */}
         <div className="flex flex-col items-center justify-center my-auto py-3 sm:py-4 w-full">
           {/* Main Cinematic Heading: "BUILD THE FUTURE." - Substantially bigger */}
           <h1
-            className={`text-[3.85rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white mb-3 sm:mb-5 uppercase leading-[0.98] sm:leading-tight ${
-              stage.heading ? 'cinematic-heading' : 'opacity-0'
-            }`}
+            className={`text-[3.85rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white mb-3 sm:mb-5 uppercase leading-[0.98] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+              }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
             }}
@@ -100,34 +105,19 @@ export const Hero: React.FC<HeroProps> = () => {
 
           {/* Subheading - Bigger & more readable */}
           <p
-            className={`max-w-2xl text-base sm:text-lg md:text-xl text-slate-200 font-normal leading-relaxed mb-4 sm:mb-6 px-3 sm:px-4 transition-all duration-700 ease-out ${
-              stage.subheading
+            className={`max-w-2xl text-base sm:text-lg md:text-xl text-slate-200 font-normal leading-relaxed mb-4 sm:mb-6 px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-6'
-            }`}
+              }`}
           >
             The premier Computer Science and Engineering student ecosystem at GECH. We learn emerging technologies, build intelligent solutions, turn breakthrough ideas into reality, and empower the next generation of innovators, engineers, and researchers.
           </p>
-
-          {/* Department Name - Bigger & bolder */}
-          <div
-            className={`transition-all duration-700 ease-out ${
-              stage.subheading
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <p className="font-sans text-sm sm:text-base md:text-lg lg:text-xl font-extrabold tracking-wider sm:tracking-widest uppercase text-cyan-300 drop-shadow-[0_0_16px_rgba(0,242,254,0.4)]">
-              Department of CSE GEC Hassan
-            </p>
-          </div>
         </div>
 
         {/* Bottom Slot: Tagline */}
         <div
-          className={`w-full pb-2 sm:pb-0 sm:mt-6 transition-all duration-1000 ${
-            stage.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
+          className={`w-full pb-2 sm:pb-0 sm:mt-6 transition-all duration-1000 ${stage.cta ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
         >
           <div className="flex items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto px-4">
             <span className="h-[1px] flex-1 max-w-[32px] sm:max-w-[50px] bg-gradient-to-r from-transparent to-cyan-400/50" />
