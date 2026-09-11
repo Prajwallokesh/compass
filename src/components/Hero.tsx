@@ -73,10 +73,10 @@ export const Hero: React.FC<HeroProps> = () => {
             className={`transition-all duration-700 ${stage.visual ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <p className="text-lg xs:text-xl sm:text-lg md:text-xl font-mono font-bold tracking-[0.14em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-snug sm:leading-normal">
-              <span className="block sm:inline mb-1.5 sm:mb-0">Department of CSE</span>
-              <span className="hidden sm:inline">, </span>
-              <span className="block sm:inline text-cyan-400">GEC Hassan</span>
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl font-mono font-bold tracking-[0.08em] xs:tracking-[0.14em] sm:tracking-[0.24em] text-cyan-300 uppercase drop-shadow-[0_0_16px_rgba(0,242,254,0.45)] leading-normal whitespace-nowrap">
+              <span>Department of CSE</span>
+              <span className="text-cyan-400/80 mx-1">,</span>
+              <span className="text-cyan-400">GEC Hassan</span>
             </p>
           </div>
           <div
@@ -93,7 +93,7 @@ export const Hero: React.FC<HeroProps> = () => {
         <div className="flex flex-col items-center justify-center w-full mt-3 sm:mt-4 mb-2 sm:mb-3">
           {/* Main Cinematic Heading: "BUILD THE" on line 1, "FUTURE." on line 2 */}
           <h1
-            className={`text-[clamp(3.5rem,15vw,4.4rem)] xs:text-[clamp(4.1rem,13.5vw,5.1rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+            className={`text-[clamp(3.9rem,16.8vw,4.75rem)] xs:text-[clamp(4.5rem,15.5vw,5.5rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-[-0.035em] sm:tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
               }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
