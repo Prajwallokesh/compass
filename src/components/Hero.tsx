@@ -91,23 +91,23 @@ export const Hero: React.FC<HeroProps> = () => {
 
         {/* Center Slot: Main Cinematic Heading + Subheading - Bigger Font on Mobile */}
         <div className="flex flex-col items-center justify-center w-full mt-3 sm:mt-4 mb-2 sm:mb-3">
-          {/* Main Cinematic Heading: "BUILD THE FUTURE." - Big & Impactful on Mobile with padding to position slightly below */}
+          {/* Main Cinematic Heading: "BUILD THE" on line 1, "FUTURE." on line 2 */}
           <h1
-            className={`text-[4.75rem] xs:text-[5.35rem] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
+            className={`text-[clamp(3.5rem,15vw,4.4rem)] xs:text-[clamp(4.1rem,13.5vw,5.1rem)] sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white pt-2.5 sm:pt-4 mb-4 sm:mb-5 uppercase leading-[0.91] sm:leading-tight ${stage.heading ? 'cinematic-heading' : 'opacity-0'
               }`}
             style={{
               textShadow: '0 0 50px rgba(0, 242, 254, 0.25)',
             }}
           >
-            <span className="block text-white">BUILD THE</span>
-            <span className="block bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
+            <span className="block text-white whitespace-nowrap">BUILD THE</span>
+            <span className="block whitespace-nowrap bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent">
               FUTURE.
             </span>
           </h1>
 
-          {/* Subheading - Bigger & balanced centered on mobile & desktop */}
+          {/* Subheading - Balanced block that looks squared and even like justified, without awkward word-spacing gaps */}
           <p
-            className={`max-w-2xl text-[21px] xs:text-[23px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-center px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
+            className={`max-w-xl mx-auto text-[19.5px] xs:text-[21.5px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-center text-balance px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-6'
               }`}
