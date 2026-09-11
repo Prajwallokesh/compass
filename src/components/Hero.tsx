@@ -103,9 +103,9 @@ export const Hero: React.FC<HeroProps> = () => {
             </span>
           </h1>
 
-          {/* Subheading - Positioned slightly below with balanced block layout */}
+          {/* Subheading - Wide & elegant on laptop/desktop, balanced on mobile */}
           <p
-            className={`max-w-xl mx-auto text-[19.5px] xs:text-[21.5px] sm:text-xl md:text-2xl text-slate-100 font-normal leading-relaxed text-center text-balance px-3 sm:px-4 transition-all duration-700 ease-out ${stage.subheading
+            className={`max-w-xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto text-[19.5px] xs:text-[21.5px] sm:text-lg md:text-xl lg:text-2xl text-slate-100 font-normal leading-relaxed text-center text-balance px-3 sm:px-6 transition-all duration-700 ease-out ${stage.subheading
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-6'
               }`}
